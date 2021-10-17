@@ -6,8 +6,8 @@ const App = () => {
   const [pokemon, setPokemon] = useState();
   const [pokemonData, setPokemonData] = useState([]);
   const [pokemonType, setPokemonType] = useState("");
+  const [id, setEvolution] = useState();
 
-  
   const handleChange = (e) => {
     setPokemon(e.target.value.toLowerCase());
   };
@@ -40,8 +40,7 @@ const App = () => {
           />
         </label>
       </form>
-      {/* <ul>{pokemonData}</ul> */}
-      {/* <p>{[pokemonData]}</p> */}
+    
       {pokemonData.map((data) => {
         return (
           <div className="container">
@@ -51,31 +50,50 @@ const App = () => {
 
                 <div className="divTableRow">
                   <div className="divTableCell">Pokemon type</div>
-                  <div className="divTableCell">{pokemonType}</div>
+                  <div className="divTableCell">
+                      <b>{pokemonType}</b>
+                  </div>
                 </div>
 
                 <div className="divTableRow">
+
                   <div className="divTableCell">Height</div>
                   <div className="divTableCell">
                     {" "}
-                    {Math.round(data.height * 3.9)}"
+                    <b>{Math.round(data.height * 3.9)}"</b>
                   </div>
+
                 </div>
+
                 <div className="divTableRow">
                   <div className="divTableCell">Weight</div>
                   <div className="divTableCell">
                     {" "}
-                    {Math.round(data.weight / 4.3)} lbs
+                    <b>{Math.round(data.weight / 4.3)} lbs</b>
                   </div>
                 </div>
+
                 <div className="divTableRow">
                   <div className="divTableCell">Number of Battles</div>
-                  <div className="divTableCell">{data.game_indices.length}</div>
+                  <div className="divTableCell">
+                    <b>{data.game_indices.length}</b>  
+                  </div>
                 </div>
 
                 <div className="divTableRow">
                   <div className="divTableCell">Name of pokemon</div>
-                  <div className="divTableCell">{data.name}</div>
+                  <div className="divTableCell">
+                      <b>{data.name}</b>
+                  </div>
+                </div>
+
+                <div className="divTableRow">
+                  <div className="divTableCell">Abilities of pokemon</div>
+                  <div className="divTableCell">
+                    <b>{data.abilities[0].ability.name}</b><br/>
+                    <b>{data.abilities[1].ability.name}</b><br/>
+                    <b>{data.abilities[2].ability.name}</b>
+                  </div>
                 </div>
               </div>
             </div>
